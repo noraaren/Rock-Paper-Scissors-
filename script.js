@@ -1,5 +1,17 @@
 console.log("Hello World"); 
 
+const container = document.querySelector("#container");
+const rockButton = document.createElement("button");
+const paperButton = document.createElement("button");
+const scissorsButton = document.createElement("button");
+container.appendChild(paperButton);
+container.appendChild(scissorsButton);
+container.appendChild(rockButton);
+rockButton.textContent = "Rock";
+paperButton.textContent = "Paper";
+scissorsButton.textContent = "Scissors"; 
+
+
 
 function playGame(){
 
@@ -21,16 +33,19 @@ function playGame(){
     }; 
 
 
-    function getHumanChoice(){ 
-        let sign = window.prompt("Choose Rock, Paper, or Scissors");
-
-        if (sign === "Rock"){
-            return sign;
-        } else if (sign === "Paper"){ 
-            return sign; 
-        } else if (sign === "Scissors"){
-            return sign;
-        }
+    function getHumanChoice() { 
+        container.addEventListener('click', (event) => {
+            let target = event.target; 
+    
+            switch(target.id) { 
+                case "rockButton": 
+                    return "rock";
+                case "paperButton":
+                    return "paper";
+                case "scissorsButton":
+                    return "scissors";
+            }
+        });
     };
 
 
